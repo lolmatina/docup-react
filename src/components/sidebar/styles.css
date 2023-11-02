@@ -1,0 +1,26 @@
+.sidebar {
+    flex: 0 0 256px;
+    width: 256px;
+    max-width: 256px;
+    min-width: 256px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    overflow: auto;
+    background: #061A40;
+}
+
+.sidebar-wrapper {
+    padding: 20px 0 5px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-menu-wrapper {
+    padding: 0;
+    margin: 0;
+}

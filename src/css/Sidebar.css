@@ -1,0 +1,128 @@
+#sidebar {
+    position: fixed;
+    left: -240px;
+    bottom: 0;
+    top: 0;
+    padding: 20px 60px 20px 60px;
+    margin-top: 45px;
+    height: 100vh;
+    background: #fff;
+    width: 300px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+.sidebar_top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar_menu {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
+}
+
+.menu {
+    width: 100%;
+}
+
+.sidebar_menu ul li {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-family: monospace;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sidebar_menu ul li:hover {
+    background: #EBEEF0;
+}
+
+.burger {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    left: 20px;
+}
+
+li.active, li.active:hover {
+    background: #4ab7ff !important;
+}
+
+.line, .line::after, .line::before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 1.5px;
+    position: absolute;
+    transition: 0.3s;
+    transition-timing-function: linear;
+}
+
+.line::after{
+    margin-top: 6px;
+    transform-origin: 50% 50%;
+}
+
+.line::before{
+    margin-top: 12px;
+    transform-origin: 0 50%;
+}
+
+.line {
+    position: relative;
+}
+
+.active .line {
+    transform: rotateZ(-45deg);
+}
+
+.burger.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active .line::after, .active .line::before {
+    transform: rotateZ(-90deg);
+    margin-top: 0;
+}
+
+.active .line::before {
+    transform: rotateZ(0deg);
+}
+
+.sidebar_heading {
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    animation: none;
+}
+
+.sidebar_heading.active{
+    animation: fadein 0.3s linear 0s 1 !important;
+}
+
+@keyframes fadein{
+    0%{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: none;
+        opacity: 1;
+    }
+}
