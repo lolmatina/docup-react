@@ -1,23 +1,24 @@
 import './App.css'
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/js/bootstrap.min.js"
-import "./css/Sidebar.css"
 import "./css/Main.css"
-import "./css/Content.css"
-import "./css/Login.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import Home from './pages/Home'
+import Sidebar from './components/sidebar/Sidebar'
+import Main from './pages/main/Main'
 
 function App() {
 
   return (<div>
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Login/>}/>
-        <Route path='/home' element={<Home/>}/>
-      </Routes>
-    </BrowserRouter>
+    <Sidebar />
+    <div className="container">
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Main/>}/>
+          <Route path='/calendar' element={<Main/>}/>
+          <Route path='/documents' element={<Main/>}/>
+          <Route path='/reports' element={<Main/>}/>
+          <Route path='/users' element={<Main/>}/>
+        </Routes>  
+      </BrowserRouter>
+    </div>
   </div>
   )
 }

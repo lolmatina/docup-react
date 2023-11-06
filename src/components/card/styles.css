@@ -1,0 +1,44 @@
+.card {
+    display: flex;
+    flex: 1 1 0%;
+    margin-bottom: 16px;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid #f0f0f0;
+    background: #fff;
+    border-radius: 4px;
+    color: #000;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.card-head {
+    font-size: 14px;
+    min-height: 36px;
+    padding: 0 12px;
+    background: transparent;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 4px 4px 0 0;
+    font-weight: 500;
+    margin-bottom: -1px;
+}
+
+.card-head-wrapper {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.card-head-title {
+    padding: 8px 0;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    box-sizing: border-box;
+}

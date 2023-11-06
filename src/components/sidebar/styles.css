@@ -5,10 +5,13 @@
     min-width: 256px;
     height: 100vh;
     position: fixed;
+    top: 0;
     left: 0;
     z-index: 2;
     overflow: auto;
     background: #061A40;
+    transition: 0.3s;
+    overflow: hidden;
 }
 
 .sidebar-wrapper {
@@ -23,4 +26,10 @@
 .sidebar-menu-wrapper {
     padding: 0;
     margin: 0;
+}
+
+.sidebar.active {
+    width: 50px !important;
+    max-width: 50px !important;
+    min-width: 50px !important;
 }

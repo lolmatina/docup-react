@@ -4,7 +4,8 @@ import './styles.css';
 class Button extends React.Component<{
     icon: () => JSX.Element,
     label: string,
-    onClick: React.MouseEventHandler<HTMLDivElement>
+    link: string,
+    onClick: React.MouseEventHandler<HTMLLIElement>
     selected: boolean
 }, {
     hover: boolean
@@ -28,7 +29,7 @@ class Button extends React.Component<{
     }
 
     render(): React.ReactNode {
-        return (<div 
+        return (<li 
         className={
             'button-item ' + 
             (this.props.selected? 'button-item-selected ': '') +
@@ -37,11 +38,15 @@ class Button extends React.Component<{
         onMouseEnter={this.handleMouseEnter} 
         onMouseLeave={this.handleMouseLeave}
         onClick={this.props.onClick}>
-            <div className="button-icon">
-                {this.props.icon()}
-            </div>
-            <div className="button-label">{this.props.label}</div>
-        </div>)
+            <a href={this.props.link? `/${this.props.link}`: undefined}
+            onClick={(e) => {if (this.props.link) {e.preventDefault(); history.pushState({}, '',`/${this.props.link}`)}}}
+            >
+                <div className="button-icon">
+                    {this.props.icon()}
+                </div>
+                <div className="button-label">{this.props.label}</div>
+            </a>
+        </li>)
     }
 }
 
