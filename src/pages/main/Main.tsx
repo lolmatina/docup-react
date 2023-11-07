@@ -9,12 +9,31 @@ class Main extends React.Component {
             <div className="container-wrapper">
                 <div className="content">
                     <div className="container-left">
-                        <Card header='Требующие учатия за 3 месяца'>
+                        <Card header='Требующие участия за 3 месяца' classes={['mb16']}>
                             <Progress />
+                        </Card>
+                        <Card header='Мой профиль'>
+                            <div className="developing">
+                                В разработке...
+                            </div>
                         </Card>
                     </div>
                     <div className="container-right">
-                    
+                        <Card header='Ваш прогресс' classes={['mb16']}>
+                            <div className="developing">
+                                В разработке...
+                            </div>
+                        </Card>
+                        <Card header='Ваша эффективность' classes={['mb16']}>
+                            <div className="developing">
+                                В разработке...
+                            </div>
+                        </Card>
+                        <Card header='Календарь'>
+                            <div className="developing">
+                                В разработке...
+                            </div>
+                        </Card>
                     </div>
                 </div>
             </div>

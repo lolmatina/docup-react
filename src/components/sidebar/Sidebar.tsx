@@ -15,7 +15,7 @@ class Sidebar extends React.Component<{}, State> {
     }
 
     render(): React.ReactNode {
-        return <aside className={'sidebar ' + (this.state.active? 'active': '')}>
+        return <aside className={'sidebar ' + (!this.state.active? 'active': '')}>
             <div className='sidebar-wrapper'>
                 <div className='sidebar-menu'>
                     <ul className='sidebar-menu-wrapper'>

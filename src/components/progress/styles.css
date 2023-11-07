@@ -1,0 +1,17 @@
+#chartContainer {
+    width: 100%;
+    height: 330px;
+}
+
+.progress-left, .progress-right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex: 1 1 0%;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

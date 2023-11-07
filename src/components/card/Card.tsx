@@ -4,7 +4,8 @@ import './styles.css'
 interface props {
     children: ReactNode,
     header: string,
-    extra?: ReactNode
+    extra?: ReactNode,
+    classes?: string[]
 }
 
 class Card extends React.Component<props> {
@@ -15,7 +16,7 @@ class Card extends React.Component<props> {
             </div>)
         }
 
-        return (<div className='card'>
+        return (<div className={'card' + (this.props.classes? ` ${this.props.classes?.join(' ')}`: '')}>
             <div className="card-head">
                 <div className="card-head-wrapper">
                     <div className="card-head-title">
@@ -24,7 +25,9 @@ class Card extends React.Component<props> {
                     {this.props.extra? extra(this.props.extra): ''}
                 </div>
             </div>
-            {this.props.children}
+            <div className="card-body">
+                {this.props.children}
+            </div>
         </div>)
     }
 }

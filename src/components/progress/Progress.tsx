@@ -1,15 +1,19 @@
-import CanvasJS from 'canvasjs'
+import CanvasJS from '@canvasjs/charts'
 import React from 'react'
 import './styles.css'
 
 interface option{
+    animationEnabled: boolean,
     title: {
+        dockInsidePlotArea: true,
+        verticalAlign: string,
         text: string
     }
     data: {
         type: string,
+        startAngle: number,
+        innerRadius: number,
         dataPoints: {
-            label: string,
             y: number
         }[]
     }[]
@@ -18,10 +22,6 @@ interface option{
 
 
 class Progress extends React.Component {
-    // state: State = {
-    //     active: 0
-    // }
-
     options: option;
     ref: React.RefObject<HTMLDivElement>
     chart!: CanvasJS.Chart
@@ -29,19 +29,35 @@ class Progress extends React.Component {
         super(props);
         this.ref = React.createRef();
         this.options = {
-            title: {
-                text: "Basic Column Chart in React"
+            animationEnabled: true,
+            theme: 'theme2',
+            title:{
+                // horizontalAlign: "center",
+                verticalAlign: "center",
+                dockInsidePlotArea: true,
+                text: '13'
             },
-            data: [{				
-                type: "column",
+            axisX: {
+                valueFormatString: '',
+                tickLength: 0
+            },
+            label: {
+                valueFormatString: ''
+            },
+            data: [{
+                type: "doughnut",
+                startAngle: 60,
+                innerRadius: 80,
+                explodeOnClick: false,
                 dataPoints: [
-                { label: "Apple",  y: 10  },
-                { label: "Orange", y: 15  },
-                { label: "Banana", y: 25  },
-                { label: "Mango",  y: 30  },
-                { label: "Grape",  y: 28  }
+                    { y: 67 },
+                    { y: 28 },
+                    { y: 10 },
+                    { y: 7 },
+                    { y: 15 },
+                    { y: 6 } 
                 ]
-            }]
+            }],
         }
     }
 
@@ -49,16 +65,19 @@ class Progress extends React.Component {
         if (!this.ref.current)
             return;
 
-        this.chart = new CanvasJS.Chart('container', this.options);
+        this.chart = new CanvasJS.Chart('chartContainer', this.options);
         this.chart.render();
     }
 
     render(): React.ReactNode {
-        return (
-        <div id="charContainer" ref={this.ref}>
-            
-        </div>
-        );
+        return (<div className="progress">
+            <div className='progress-left'>
+                <div id="chartContainer" ref={this.ref}></div>
+            </div>
+            <div className='progress-right'>
+                
+            </div>
+        </div>);
     }
 }
 

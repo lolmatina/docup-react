@@ -1,6 +1,7 @@
 .card {
     display: flex;
-    flex: 1 1 0%;
+    flex: 1 1 50%;
+    max-height: 50%;
     margin-bottom: 16px;
     flex-direction: column;
     box-sizing: border-box;
@@ -17,6 +18,7 @@
 }
 
 .card-head {
+    display: block;
     font-size: 14px;
     min-height: 36px;
     padding: 0 12px;
@@ -27,6 +29,16 @@
     margin-bottom: -1px;
 }
 
+.card-head::after, .card-head::before {
+    content: "";
+    display: table;
+}
+
+.card-head::after {
+    content: "";
+    clear: both;
+}
+
 .card-head-wrapper {
     display: flex;
     align-items: center;
@@ -35,10 +47,18 @@
 
 .card-head-title {
     padding: 8px 0;
+    font-family: sans-serif;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 14px;
     box-sizing: border-box;
+}
+
+.card-body {
+    flex: 1 1 0%;
+    display: flex;
+    padding: 16px;
+    overflow: hidden;
 }

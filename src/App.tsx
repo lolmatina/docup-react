@@ -6,7 +6,7 @@ import Main from './pages/main/Main'
 
 function App() {
 
-  return (<div>
+  return (<div className='app'>
     <Sidebar />
     <div className="container">
       <BrowserRouter>
