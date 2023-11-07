@@ -3,6 +3,7 @@ import "./css/Main.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/sidebar/Sidebar'
 import Main from './pages/main/Main'
+import Users from './pages/users/Users'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
           <Route path='/calendar' element={<Main/>}/>
           <Route path='/documents' element={<Main/>}/>
           <Route path='/reports' element={<Main/>}/>
-          <Route path='/users' element={<Main/>}/>
+          <Route path='/users' element={<Users/>}/>
         </Routes>  
       </BrowserRouter>
     </div>

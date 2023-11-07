@@ -1,6 +1,7 @@
 import CanvasJS from '@canvasjs/charts'
 import React from 'react'
 import './styles.css'
+import REQUEST from '../../utils/request'
 
 interface option{
     animationEnabled: boolean,
@@ -13,36 +14,45 @@ interface option{
         type: string,
         startAngle: number,
         innerRadius: number,
+        explodeOnClick: boolean,
         dataPoints: {
             y: number
         }[]
     }[]
 }
 
+interface requestList {
+    type: string,
+    requests: REQUEST[]
+}
+
+type Props = {
+    requests: REQUEST[]
+}
+
+type State = {
+    current: number
+}
 
 
-class Progress extends React.Component {
+class Progress extends React.Component<Props, State> {
     options: option;
-    ref: React.RefObject<HTMLDivElement>
-    chart!: CanvasJS.Chart
-    constructor(props: {}) {
+    ref: React.RefObject<HTMLDivElement>;
+    chart!: CanvasJS.Chart;
+    state: State = {
+        current: 0
+    };
+    requestList!: requestList[]
+    constructor(props) {
         super(props);
         this.ref = React.createRef();
         this.options = {
             animationEnabled: true,
-            theme: 'theme2',
             title:{
                 // horizontalAlign: "center",
                 verticalAlign: "center",
                 dockInsidePlotArea: true,
                 text: '13'
-            },
-            axisX: {
-                valueFormatString: '',
-                tickLength: 0
-            },
-            label: {
-                valueFormatString: ''
             },
             data: [{
                 type: "doughnut",
@@ -59,6 +69,18 @@ class Progress extends React.Component {
                 ]
             }],
         }
+        const types: Set<string> = new Set();
+        this.props.requests.map((request) => {
+            types.add(request.model.name);
+        });
+        types.forEach((type) => {
+            this.requestList.push({
+                type: type, 
+                requests: this.props.requests.filter(request => {
+                    return (request.model.name == type);
+                })
+            });
+        });
     }
 
     componentDidMount(): void {

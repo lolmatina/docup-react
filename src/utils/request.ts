@@ -8,6 +8,7 @@ export default interface REQUEST {
     members: USER[],
     date: Date,
     deadline: Date,
+    title: string,
     description: string,
     documents: DOCUMENT[]
     model: REQUEST_MODEL,
