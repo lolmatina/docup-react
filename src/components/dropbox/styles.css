@@ -1,0 +1,113 @@
+.dropbox {
+    padding: 0 4px;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 1px;
+    position: relative;
+    display: block;
+}
+
+.dropbox-select {
+    max-width: 200px;
+    min-width: 150px;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.dropbox-select-selector {
+    cursor: text;
+    background-color: #fff;
+    border: 1px solid silver;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(.645, .045, .355, 1);
+    height: 32px;
+    padding: 0 11px;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    font-feature-settings: "tnum", "tnum";
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+}
+
+.dropbox-select-selector:root {
+    --fc-daygrid-event-dot-width: 8px;
+    --fc-small-font-size: .85em;
+    --fc-page-bg-color: #fff;
+    --fc-neutral-bg-color: hsla(0,0%,82%,.3);
+    --fc-neutral-text-color: grey;
+    --fc-button-bg-color: #2c3e50;
+}
+
+.dropbox-select-selector::selection {
+    background: #1890ff;
+    color: #fff;
+}
+
+
+
+.dropbox-select-search {
+    right: 25px;
+    bottom: 0;
+    left: 11px;
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+}
+
+.dropbox-select-search-input {
+    appearance: none;
+    background: transparent;
+    border: none;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    height: 30px;
+    width: 100%;
+    touch-action: manipulation;
+    box-sizing: border-box;
+    outline-offset: -2px;
+    overflow: visible;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    writing-mode: horizontal-tb;
+    padding-block: 1px;
+    padding-inline: 2px;
+    display: inline-block;
+    text-align: start;
+}
+
+.dropbox-select-item {
+    position: relative;
+    user-select: none;
+    line-height: 30px;
+    padding: 0;
+    padding-right: 18px;
+    transition: all 0.3s, visibility 0s;
+    flex: 1 1;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    cursor: text;
+    font-size: 14px;
+    font-family: sans-serif;
+}

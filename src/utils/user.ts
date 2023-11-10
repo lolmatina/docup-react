@@ -6,5 +6,5 @@ export default interface USER {
     name: string,
     email: string,
     department: DEPARTMENT,
-    requests: REQUEST[]
+    requests: REQUEST[] | null
 }
