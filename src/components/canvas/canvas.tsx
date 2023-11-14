@@ -57,9 +57,9 @@ class Canvas extends React.Component{
     handleScroll(event: React.WheelEvent<HTMLCanvasElement>) {
         if (event.altKey) {
             console.log('asd');
-            
-            event.deltaY > 0 && this.plane.zoomOut();
-            event.deltaY < 0 && this.plane.zoomIn();
+            const {x, y} = this.plane.getCursorPosition(event.clientX - this.left, event.clientY - this.top);
+            event.deltaY > 0 && this.plane.zoomOut(x, y);
+            event.deltaY < 0 && this.plane.zoomIn(x, y);
         }
     }
 
@@ -138,7 +138,7 @@ class Plane {
     }
 
     addObject(x:number, y:number) {
-        this.objects.push(new Rectangle(100, 100, new Coordinates(x, y), '#000'))
+        this.objects.push(new Rectangle(100, 100, new Coordinates(x - 50, y - 50), '#000'))
         this.render()
     }
 
@@ -146,14 +146,16 @@ class Plane {
         this.canvas.clearRect(0, 0, this.width, this.height);
     }
 
-    zoomIn() {
+    zoomIn(x: number, y: number) {
         console.log('+');
-        
         this.view += 0.1;
+        const offsetX = x - (x * 0.1),
+              offsetY = y - (y * 0.1);
+        this.updatePos(this.viewPos.x + offsetX, this.viewPos.y + offsetY);
         this.render()
     }
 
-    zoomOut() {
+    zoomOut(x: number, y: number) {
         console.log('-');
         this.view -= 0.1;
         this.render()
