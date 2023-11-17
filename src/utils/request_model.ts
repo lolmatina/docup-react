@@ -4,4 +4,3 @@ export default interface REQUEST_MODEL {
     name: string
 }
 
-   
