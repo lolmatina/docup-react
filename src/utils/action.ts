@@ -1,0 +1,7 @@
+enum ACTIONS {
+    AGREEMENT,
+    FINALIZATION,
+    DECLINE,
+    COMPLETE,
+    SUBMIT
+}
