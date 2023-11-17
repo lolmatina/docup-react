@@ -1,0 +1,18 @@
+enum ACTORS {
+    INITIATOR,
+    HEAD_OF_INITIATOR,
+    HEAD_OF_IT,
+    HEAD_OF_SUPPLY,
+    HEAD_OF_ECON,
+    HEAD_OF_ACCOUNTING,
+    HEAD_OF_LAWYER,
+    HEAD_OF_HR,
+    HR,
+    IT,
+    SUPPLY,
+    ECON,
+    ACCOUNTING,
+    LAWYER
+}
+
+export default ACTORS
